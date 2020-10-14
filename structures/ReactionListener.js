@@ -9,6 +9,8 @@ export default class ReactionListener extends EventEmitter {
      * @param {number} timeout
      */
     constructor(reactionInterface, messageId, reactionType, timeout) {
+        super();
+
         this._reactionInterface = reactionInterface;
         this._id = messageId;
 
