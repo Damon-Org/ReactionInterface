@@ -109,8 +109,9 @@ export default class ReactionInterface extends BaseModule {
      * @param {Array|string} emojiResolvable This param should be an array emoji strings or a single emoji.
      * @param {string} reactionType The type of reaction to listen on
      * @param {number} [timeout=30e3] The timeout to delete the message by give "-1" for infinite, in this you should manually remove the listener when you're done
+     * @returns {ReactionListener}
      */
-    async createReactionListener(message, emojiResolvable, reactionType='TOGGLE', timeout = 30e3) {
+    createReactionListener(message, emojiResolvable, reactionType='TOGGLE', timeout = 30e3) {
         this._react(message, emojiResolvable);
 
         const messageId = message.id;
