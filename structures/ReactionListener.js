@@ -52,7 +52,7 @@ export default class ReactionListener extends EventEmitter {
         this.removeAllListeners();
 
         // Remove it from the cache so the reaction listener itself can also be garbage collected
-        this._reactionInterface.remove(reactionListener.id);
+        this._reactionInterface.remove(this.id);
 
         if (timeout) return this.emit('timeout');
     }
