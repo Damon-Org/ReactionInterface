@@ -122,7 +122,7 @@ export default class ReactionInterface extends BaseModule {
     }
 
     /**
-     * @param {string} id Identifier of the Reactionlistenr to remove from the cache
+     * @param {string} id Identifier of the Reactionlistener to remove from the cache
      * @returns {boolean} True if an existing ReactionListener was removed, false if none were found.
      */
     remove(id) {
