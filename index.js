@@ -115,7 +115,7 @@ export default class ReactionInterface extends BaseModule {
         this._react(message, emojiResolvable);
 
         const messageId = message.id;
-        const reactionListener = new ReactionListener(reactionInterface, messageId, reactionType, timeout);
+        const reactionListener = new ReactionListener(this, messageId, reactionType, timeout);
 
         this._cache.set(messageId, reactionListener)
 
