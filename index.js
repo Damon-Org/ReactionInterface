@@ -58,7 +58,7 @@ export default class ReactionInterface extends BaseModule {
         const reactionListener = this._cache.get(messageId);
         const emoji = messageReaction.emoji.name;
 
-        reactionListener.reaction(reactionType, emoji);
+        reactionListener.reaction(reactionType, emoji, user);
     }
 
     /**
