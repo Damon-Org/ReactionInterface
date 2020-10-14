@@ -58,23 +58,24 @@ export default class ReactionListener extends EventEmitter {
     /**
      * @param {ReactionType} reactionType
      * @param {string} emoji
+     * @param {User} user
      */
-    reaction(reactionType, emoji) {
+    reaction(reactionType, emoji, user) {
         if (reactionType != this.reactionType) return;
 
         switch (reactionType) {
             case ReactionType['TOGGLE']: {
-                this.emit('reaction', emoji);
+                this.emit('reaction', emoji, user);
 
                 break;
             }
             case ReactionType['ADD']: {
-                this.emit('reaction', emoji);
+                this.emit('reaction', emoji, user);
 
                 break;
             }
             case ReactionType['REMOVE']: {
-                this.emit('reaction', emoji);
+                this.emit('reaction', emoji, user);
 
                 break;
             }
