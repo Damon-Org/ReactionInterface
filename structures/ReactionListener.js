@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { ReactionType } from '../util/Constants.js'
+import { ReactionType, OuterCleanupDate } from '../util/Constants.js'
 
 export default class ReactionListener extends EventEmitter {
     /**
@@ -37,7 +37,7 @@ export default class ReactionListener extends EventEmitter {
      */
     _cleanup(timeout) {
         // Have an outer date to cleanup for in the case I would forget to remove the listener on an infinite ReactionListener
-        if (timeout == -1) this.cleanupDate = Date.now() + 6e5;
+        if (timeout == -1) this.cleanupDate = Date.now() + OuterCleanupDate;
 
         this.cleanupDate = Date.now() + timeout;
     }
