@@ -26,7 +26,7 @@ reactionListener.on('reaction', async (emoji, user) => {
     reactionListener.cleanup();
 
     // You can retrieve your stored data from the reactionListener whenever you need it
-    const { data, exception, msgObj, origVideoId, serverMember, voiceChannel } = reactionListener.getData();
+    const { data, exception, msgObj } = reactionListener.getData();
 
     msgObj.delete();
 
