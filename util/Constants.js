@@ -1,4 +1,4 @@
-export const CleanupInternval = 10e3;
+export const CleanupInternval = 1e3;
 
 export const OuterCleanupDate = 6e8;
 
