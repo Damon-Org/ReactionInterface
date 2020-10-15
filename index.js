@@ -43,7 +43,7 @@ export default class ReactionInterface extends BaseModule {
 
         for (const reactionListener of this._cache) {
             if (reactionListener.cleanupDate <= currentTime) {
-                reactionListener.cleanup();
+                reactionListener.cleanup(true);
             }
         }
     }

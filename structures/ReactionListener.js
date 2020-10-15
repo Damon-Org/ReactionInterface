@@ -53,7 +53,7 @@ export default class ReactionListener extends EventEmitter {
     /**
      * @param {boolean} [timeout=true] Did the cleanup get called because of a timeout?
      */
-    cleanup(timeout = true) {
+    cleanup(timeout = false) {
         // Removes the listeners on any functions and will remove the lock on nested functions marking them so they can be garbage collected
         this.removeAllListeners();
 
