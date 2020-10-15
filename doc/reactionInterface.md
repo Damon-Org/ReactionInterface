@@ -3,7 +3,16 @@
 ## Table of Contents
 
 - [Module: ReactionInterface](#module-reactioninterface)
-  - To be finished
+  - [Properties](#properties)
+  - [reactionInterface.createReactionListener(message, emojiResolvable[, reactionType, data, timeout])](#reactioninterfacecreatereactionlistenermessage-emojiresolvable-reactiontype-data-timeout)
+
+- [Class: ReactionListener](#class-reactionlistener)
+  - [new ReactionListener(reactionInterface, messageId, emojiResolvable, reactionType, data, timeout)](#new-reactionlistenerreactioninterface-messageid-emojiresolvable-reactiontype-data-timeout)
+  - [Event: 'reaction'](#event-reaction)
+  - [Event: 'timeout'](#event-timeout)
+  - [reactionListener.cleanup([timeout])](#reactionlistenercleanuptimeout)
+  - [reactionListener.getData()](#reactionlistenergetdata)
+  - [reactionListener.reaction(reactionType, emoji, user)](#reactionlistenerreactionreactiontype-emoji-user)
 
 ## Module: ReactionInterface
 
@@ -27,6 +36,8 @@ The module uses an unmodified version `BaseModule` class.
 - `timeout` {number} The time to listen for reactions, defaults to 30 seconds, give -1 to listen infinitely (make sure you manually do the cleanup).
 
 Returns a [`ReactionListener`]().
+
+## Class: ReactionListener
 
 ### new ReactionListener(reactionInterface, messageId, emojiResolvable, reactionType, data, timeout)
 
