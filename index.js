@@ -50,7 +50,7 @@ export default class ReactionInterface extends BaseModule {
 
     _onReaction(reactionType, messageReaction, user) {
         // Wether the bot did the reaction
-        if (messageReaction.me) return;
+        if (user.id == this._m.user.id) return;
 
         const messageId = messageReaction.message.id;
 
