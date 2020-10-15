@@ -31,8 +31,6 @@ export default class ReactionInterface extends BaseModule {
                 }
             ]
         });
-
-        this._eventReferences = {};
     }
 
     /**
@@ -118,7 +116,7 @@ export default class ReactionInterface extends BaseModule {
         this._react(message, emojiResolvable);
 
         const messageId = message.id;
-        const reactionListener = new ReactionListener(this, messageId, reactionType, data, timeout);
+        const reactionListener = new ReactionListener(this, messageId, emojiResolvable, reactionType, data, timeout);
 
         this._cache.set(messageId, reactionListener)
 

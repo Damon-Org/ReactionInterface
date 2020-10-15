@@ -5,15 +5,18 @@ export default class ReactionListener extends EventEmitter {
     /**
      * @param {ReactionInterface} reactionInterface The parent module
      * @param {string} messageId
+     * @param {Array|string} emojiResolvable
      * @param {ReactionType} reactionType
      * @param {*} data Any data that should be available when handling an event
      * @param {number} timeout
      */
-    constructor(reactionInterface, messageId, reactionType, data, timeout) {
+    constructor(reactionInterface, messageId, emojiResolvable, reactionType, data, timeout) {
         super();
 
         this._reactionInterface = reactionInterface;
         this._id = messageId;
+
+        this._emojis = emojiResolvable instanceof Array ? emojiResolvable : [emojiResolvable];
 
         this.reactionType = reactionType;
 
@@ -71,6 +74,7 @@ export default class ReactionListener extends EventEmitter {
      */
     reaction(reactionType, emoji, user) {
         if (reactionType != this.reactionType) return;
+        if (!this._emojis.includes(emoji)) return;
 
         switch (reactionType) {
             case ReactionType['TOGGLE']: {
