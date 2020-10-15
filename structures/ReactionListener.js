@@ -6,15 +6,18 @@ export default class ReactionListener extends EventEmitter {
      * @param {ReactionInterface} reactionInterface The parent module
      * @param {string} messageId
      * @param {ReactionType} reactionType
+     * @param {*} data Any data that should be available when handling an event
      * @param {number} timeout
      */
-    constructor(reactionInterface, messageId, reactionType, timeout) {
+    constructor(reactionInterface, messageId, reactionType, data, timeout) {
         super();
 
         this._reactionInterface = reactionInterface;
         this._id = messageId;
 
         this.reactionType = reactionType;
+
+        this._data = data;
 
         this._cleanup(timeout);
     }
@@ -55,6 +58,10 @@ export default class ReactionListener extends EventEmitter {
         this._reactionInterface.remove(this.id);
 
         if (timeout) return this.emit('timeout');
+    }
+
+    getData() {
+        return this._data;
     }
 
     /**

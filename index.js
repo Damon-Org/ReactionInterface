@@ -110,14 +110,15 @@ export default class ReactionInterface extends BaseModule {
      * @param {Message} message The discord message to listen on
      * @param {Array|string} emojiResolvable This param should be an array emoji strings or a single emoji.
      * @param {string} reactionType The type of reaction to listen on
+     * @param {*} data Any data that should be available in the event handlers
      * @param {number} [timeout=30e3] The timeout to delete the message by give "-1" for infinite, in this you should manually remove the listener when you're done
      * @returns {ReactionListener}
      */
-    createReactionListener(message, emojiResolvable, reactionType='TOGGLE', timeout = 30e3) {
+    createReactionListener(message, emojiResolvable, reactionType='TOGGLE', data = null, timeout = 30e3) {
         this._react(message, emojiResolvable);
 
         const messageId = message.id;
-        const reactionListener = new ReactionListener(this, messageId, reactionType, timeout);
+        const reactionListener = new ReactionListener(this, messageId, reactionType, data, timeout);
 
         this._cache.set(messageId, reactionListener)
 
