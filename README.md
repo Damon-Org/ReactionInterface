@@ -10,7 +10,7 @@ const serverMember = msgObj.member;
 
 const emojis = ['✅', '❎'];
 
-const reactionInterface = this._m.getModule('reactionInterface');
+const reactionInterface = this._m.modules.reactionInterface;
 const reactionListener = reactionInterface.createReactionListener(newMsg, emojis, 'add', {
     data,
     exception,
