@@ -124,17 +124,17 @@ export default class ReactionInterface extends BaseModule {
         return reactionListener;
     }
 
+    init() {
+        this._cleanupInterval();
+
+        return true;
+    }
+
     /**
      * @param {string} id Identifier of the Reactionlistener to remove from the cache
      * @returns {boolean} True if an existing ReactionListener was removed, false if none were found.
      */
     remove(id) {
         return this._cache.delete(id);
-    }
-
-    setup() {
-        this._cleanupInterval();
-
-        return true;
     }
 }
